@@ -1,0 +1,71 @@
+<!Doctype>
+<html>
+
+<head>
+    <title>Neighbourhood map</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js\jquery.min.js"></script>
+    <script src="js\knockout.js"></script>
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="abc"></div>
+        <div >
+            <div class=" Upper">
+                <h1>Five Star Hotels</h1>
+                <p>Mumbai</p>
+            </div>
+        </div>
+  </div>
+
+
+      <div >
+            <!--knockout js to bind-->
+            <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" data-bind="value: inputText, valueUpdate: 'afterkeydown', event: {keyup: filtersearch}">
+                    </div>
+                </form>
+            <ul class="nav navbar-nav" data-bind="foreach:markers">
+                <li class="list">
+                    <a data-bind="visible:show, event:{click:$parent.markerselect},text:title"></a>
+                </li>
+            </ul>
+      </div>
+
+
+
+      <div id="map"></div>
+      <script>
+        var map;
+
+        function initMap() {
+            // creates a new map - only center and zoom are required.
+
+                  map= new google.maps.Map(document.getElementById('map'),{
+                  center: {lat: 20.5937, lng: 78.9629},
+                  zoom: 10
+                  });
+
+            ko.applyBindings(new viewmodel());
+        }
+        function googleerror()
+        {
+          alert("Map is not loading ");
+        }
+
+
+    </script>
+
+<script src="js\main.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkgUfWjjQzOYAwA3nCoYnxapATu9g9FM&v=3&callback=initMap" onerror="googleerror()">
+
+    </script>
+    </body>
+
+</html>

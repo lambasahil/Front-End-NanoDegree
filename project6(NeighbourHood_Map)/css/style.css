@@ -1,0 +1,18 @@
+.Upper {
+    background-color: cyan;
+    width: 100%;
+    text-align: center;
+    color: black;
+    border-radius: 44px;
+    font-size: 30px;
+    padding-top: 10px;
+}
+.abc{
+  padding-bottom: 20px;
+}
+#map {
+    height: 60%;
+    position: relative;
+    padding: 10px;
+    margin-top: 50px;
+}
