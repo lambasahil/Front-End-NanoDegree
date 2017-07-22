@@ -107,7 +107,6 @@ map.fitBounds(bounds);
       //passing rat for marker
       $.ajax({ //ajax request for foursquare api
           method: 'GET',
-          dataType: "json",
           url: "https://api.foursquare.com/v2/venues/" + rate.id + "?client_id=DTAQ05IKCXEIVRR4OVVNXT0BXRMUNJ1J2EJYLODJQW05XTKS&client_secret=GFIECF04AR0SUXB2FIHK0UAQI0RCEEMAB5O5VXVONA2Z4LYL&v=20170318",
           success: function(data) { //if data is successfully fetch than function will execute
               var venue = data.response.venue;
